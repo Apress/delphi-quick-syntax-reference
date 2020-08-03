@@ -1,0 +1,72 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{244FF52B-451C-4420-B152-C6912E0E9E42}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Chapter02.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Chapter03.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Chapter04.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="Chapter05.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Chapter02">
+        <MSBuild Projects="Chapter02.dproj"/>
+    </Target>
+    <Target Name="Chapter02:Clean">
+        <MSBuild Projects="Chapter02.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Chapter02:Make">
+        <MSBuild Projects="Chapter02.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Chapter03">
+        <MSBuild Projects="Chapter03.dproj"/>
+    </Target>
+    <Target Name="Chapter03:Clean">
+        <MSBuild Projects="Chapter03.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Chapter03:Make">
+        <MSBuild Projects="Chapter03.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Chapter04">
+        <MSBuild Projects="Chapter04.dproj"/>
+    </Target>
+    <Target Name="Chapter04:Clean">
+        <MSBuild Projects="Chapter04.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Chapter04:Make">
+        <MSBuild Projects="Chapter04.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Chapter05">
+        <MSBuild Projects="Chapter05.dproj"/>
+    </Target>
+    <Target Name="Chapter05:Clean">
+        <MSBuild Projects="Chapter05.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Chapter05:Make">
+        <MSBuild Projects="Chapter05.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Chapter02;Chapter03;Chapter04;Chapter05"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Chapter02:Clean;Chapter03:Clean;Chapter04:Clean;Chapter05:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Chapter02:Make;Chapter03:Make;Chapter04:Make;Chapter05:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
